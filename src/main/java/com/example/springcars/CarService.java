@@ -1,8 +1,5 @@
 package com.example.springcars;
 
-import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,13 +20,7 @@ public class CarService {
         carList.add(car3);
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void showCar() {
-        carList.forEach(System.out::println);
-    }
-
-    public static void main(String[] args) {
-        CarService carService = new CarService();
-        carService.showCar();
+    public List<Car> getCars() {
+        return carList;
     }
 }
